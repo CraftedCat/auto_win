@@ -5,7 +5,7 @@ wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/net.p
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/enable-rdp.ps1
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autounattend_bios.xml
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autounattend_uefi.xml
-wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autounattend_uefi.xml
+wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/PRO1000.zip
 
 #!/bin/bash
 
