@@ -10,11 +10,10 @@ Start-Service -Name TermService
 
 $driverPath = "C:\PRO1000\Winx64\WS2022_CUSTOM"
 $targetId = "PCI\VEN_8086&DEV_1A1D"
-
-# Найти все сетевые устройства с подходящим HardwareID
-$devices = Get-PnpDevice -Class Net | Where-Object {
-    $_.HardwareID -and ($_.HardwareID -contains $targetId)
+$devices = Get-CimInstance Win32_PnPEntity | Where-Object {
+    $_.PNPClass -eq "Net" -and $_.HardwareID -match [regex]::Escape($targetId)
 }
+
 
 if (-not $devices) {
     Write-Host "Нет устройств с HardwareID: $targetId"
@@ -36,4 +35,6 @@ if (-not $devices) {
         }
     }
 }
+
+
 
