@@ -10,7 +10,7 @@ regex='^[0-9]+$'
 # ENV
 MIRROR="https://mirror.gameservers.me"
 MIR_USER="XLGAMES"
-MIR_PASSWD="AlQDOCrr1yFwNLLMAp"
+MIR_PASSWD="{{password}}"
 #CDROM_ISO="SW_DVD9_Win_Server_STD_CORE_2022__64Bit_Russian_DC_STD_MLF_X22-74303.ISO"
 CDROM_ISO="CustomServer2022.iso"
 VNC_ADDRESS="127.0.0.1:1"

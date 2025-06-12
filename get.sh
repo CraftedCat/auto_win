@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/install.sh
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/net.ps1
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/enable-rdp.ps1
@@ -6,20 +7,29 @@ wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autou
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autounattend_uefi.xml
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autounattend_uefi.xml
 
-if [ -z "$1" ]; then
-    echo "Использование: $0 <пароль>"
+#!/bin/bash
+
+# Проверка: оба пароля должны быть заданы
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Использование: $0 <пароль для XML> <пароль для install.sh>"
     exit 1
 fi
 
-PASSWORD="$1"
+PASSWORD_XML="$1"
+PASSWORD_INSTALL="$2"
 
-# Экранируем спецсимволы пароля для безопасной замены в sed
-ESCAPED_PASSWORD=$(printf '%s\n' "$PASSWORD" | sed 's/[&/\]/\\&/g')
+# Замена {{password}} в autounattend_bios.xml и autounattend_uefi.xml
+for file in autounattend_bios.xml autounattend_uefi.xml; do
+    if [ -f "$file" ]; then
+        sed -i "s|{{password}}|$PASSWORD_XML|g" "$file"
+    else
+        echo "Файл $file не найден!"
+    fi
+done
 
-# Заменяем {{password}} в файлах
-sed -i "s/{{password}}/$ESCAPED_PASSWORD/g" autounattend_bios.xml
-sed -i "s/{{password}}/$ESCAPED_PASSWORD/g" autounattend_uefi.xml
-
-echo "Пароль вставлен в XML-файлы."
-
-bash install.sh
+# Замена {{password}} в install.sh
+if [ -f install.sh ]; then
+    sed -i "s|{{password}}|$PASSWORD_INSTALL|g" install.sh
+else
+    echo "Файл install.sh не найден!"
+fi
