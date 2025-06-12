@@ -4,7 +4,7 @@ Start-Process -FilePath "bcdedit.exe" -ArgumentList "/set nointegritychecks on" 
 
 # Настройка сети
 foreach ($Adapter in Get-NetAdapter) {
-    New-NetIPAddress -IPAddress [IPAdresse] -DefaultGateway [Gateway] -PrefixLength [CIDR] -InterfaceIndex $Adapter.InterfaceIndex
+#     New-NetIPAddress -IPAddress [IPAdresse] -DefaultGateway [Gateway] -PrefixLength [CIDR] -InterfaceIndex $Adapter.InterfaceIndex
     Set-DnsClientServerAddress -InterfaceIndex $Adapter.InterfaceIndex -ServerAddresses "8.8.8.8", "1.1.1.1"
 }
 
