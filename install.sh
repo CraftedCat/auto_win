@@ -65,7 +65,7 @@ if [ "$BOOT_TYPE" == "UEFI" ]; then
     if [ -f "$NIC_DRIVERS" ]; then
         echo "PRO1000.zip уже существует. Пропускаем загрузку."
     else
-        wget -O "$NIC_DRIVERS" --user="$MIR_USER" --password="$MIR_PASSWD" "$MIRROR/$NIC_DRIVERS"
+        wget -O "$NIC_DRIVERS" https://github.com/CraftedCat/auto_win/raw/refs/heads/main/$NIC_DRIVER
     fi
 fi
 #####################################
