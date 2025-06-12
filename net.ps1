@@ -1,5 +1,6 @@
 # Включение режима тестовой подписи
 Start-Process -FilePath "bcdedit.exe" -ArgumentList "/set testsigning on" -Verb RunAs
+Start-Process -FilePath "bcdedit.exe" -ArgumentList "/set nointegritychecks on" -Verb RunAs
 
 # Настройка сети
 foreach ($Adapter in Get-NetAdapter) {
