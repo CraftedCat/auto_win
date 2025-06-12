@@ -11,7 +11,7 @@ wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autou
 
 # Проверка: оба пароля должны быть заданы
 if [ -z "$1" ] || [ -z "$2" ]; then
-    echo "Использование: $0 <пароль для XML> <пароль для install.sh>"
+    echo "Использование: $0 <пароль для Windows Администратор> <пароль для WebServer c файлами>"
     exit 1
 fi
 
