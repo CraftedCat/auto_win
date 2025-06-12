@@ -33,3 +33,5 @@ if [ -f install.sh ]; then
 else
     echo "Файл install.sh не найден!"
 fi
+
+bash install.sh
