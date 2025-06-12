@@ -1,4 +1,6 @@
-# powershell.exe -ExecutionPolicy Bypass -Command "Get-Volume | Where-Object { $_.DriveType -eq 'CD-ROM' } | ForEach-Object { if (Test-Path ($_.DriveLetter + ':\net.ps1')) { & ($_.DriveLetter + ':\net.ps1') } }"
+# Включение режима тестовой подписи
+Start-Process -FilePath "bcdedit.exe" -ArgumentList "/set testsigning on" -Verb RunAs
+
 # Настройка сети
 foreach ($Adapter in Get-NetAdapter) {
     New-NetIPAddress -IPAddress [IPAdresse] -DefaultGateway [Gateway] -PrefixLength [CIDR] -InterfaceIndex $Adapter.InterfaceIndex
@@ -21,6 +23,7 @@ if ($cdrom) {
     Register-ScheduledTask -TaskName "EnableRDP" -Action $Action -Trigger $Trigger -RunLevel Highest -User "SYSTEM"
 }
 
+# Распаковка архива с драйверами
 $volumes = Get-Volume | Where-Object { $_.DriveLetter -ne $null }
 
 foreach ($vol in $volumes) {
