@@ -28,12 +28,12 @@ if ($cdrom) {
 $volumes = Get-Volume | Where-Object { $_.DriveLetter -ne $null }
 
 foreach ($vol in $volumes) {
-    $zipPath = "$($vol.DriveLetter):\PRO1000.zip"
-    $zipPath2 = "$($vol.DriveLetter):\x64.zip"
+    $zipPathNIC = "$($vol.DriveLetter):\PRO1000.zip"
+    $zipPathWDK = "$($vol.DriveLetter):\x64.zip"
     if (Test-Path $zipPath) {
         $extractTo = "C:\"
-        Expand-Archive -Path $zipPath -DestinationPath $extractTo -Force
-        Expand-Archive -Path $zipPath2 -DestinationPath $extractTo -Force
+        Expand-Archive -Path $zipPathNIC -DestinationPath $extractTo -Force
+        Expand-Archive -Path $zipPathWDK -DestinationPath $extractTo -Force
         break
     }
 }
