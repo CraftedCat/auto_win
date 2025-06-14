@@ -33,8 +33,8 @@ foreach ($vol in $volumes) {
     if (Test-Path $zipPathNIC) {
         $extractToNIC = "C:\"
         $extractToWDK = "C:\x64\"
-        Expand-Archive -Path $zipPathNIC -DestinationPath $extractTo -Force
-        Expand-Archive -Path $zipPathWDK -DestinationPath $extractTo -Force
+        Expand-Archive -Path $zipPathNIC -DestinationPath $extractToNIC -Force
+        Expand-Archive -Path $zipPathWDK -DestinationPath $extractToWDK -Force
         break
     }
 }
