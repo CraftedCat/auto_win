@@ -30,10 +30,11 @@ $volumes = Get-Volume | Where-Object { $_.DriveLetter -ne $null }
 foreach ($vol in $volumes) {
     $zipPathNIC = "$($vol.DriveLetter):\PRO1000.zip"
     $zipPathWDK = "$($vol.DriveLetter):\x64.zip"
-    if (Test-Path $zipPath) {
+    if (Test-Path $zipPathNIC) {
         $extractTo = "C:\"
         Expand-Archive -Path $zipPathNIC -DestinationPath $extractTo -Force
         Expand-Archive -Path $zipPathWDK -DestinationPath $extractTo -Force
         break
     }
 }
+
