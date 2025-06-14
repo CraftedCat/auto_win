@@ -12,7 +12,7 @@ $driverPath = "C:\PRO1000\Winx64\WS2022"
 $infPath = "$driverPath\e1r.inf"
 $devconPath = "C:\x64\x64\devcon.exe"
 $targetId = "PCI\VEN_8086&DEV_1A1D"
-$deviceIdToUse = "PCI\VEN_8086&DEV_1A1D&SUBSYS_86721043"
+$deviceIdToUse = "PCI\VEN_8086&DEV_1A1D"
 
 # Поиск устройств с нужным HardwareID
 $devices = @(Get-CimInstance Win32_PnPEntity | Where-Object {
