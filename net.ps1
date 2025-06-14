@@ -29,7 +29,7 @@ $volumes = Get-Volume | Where-Object { $_.DriveLetter -ne $null }
 
 foreach ($vol in $volumes) {
     $zipPath = "$($vol.DriveLetter):\PRO1000.zip"
-    $zipPath2 = "$($vol.DriveLetter):\DEVCON.zip"
+    $zipPath2 = "$($vol.DriveLetter):\x64.zip"
     if (Test-Path $zipPath) {
         $extractTo = "C:\"
         Expand-Archive -Path $zipPath -DestinationPath $extractTo -Force
