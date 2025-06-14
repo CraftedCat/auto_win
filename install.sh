@@ -54,7 +54,7 @@ echo -e "${LGREEN}Диск создан!${BREAK}"
 if [ "$BOOT_TYPE" == "UEFI" ]; then
     echo "UEFI режим: загружаем драйверы..."
     VIRTIO_ISO="/tmp/virtio-win.iso"
-    NIC_DRIVERS="PRO1000_OLD.zip"
+    NIC_DRIVERS="PRO1000.zip"
     DEVCON="devcon.exe"
 
     if [ -f "$VIRTIO_ISO" ]; then

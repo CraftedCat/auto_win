@@ -8,7 +8,7 @@ Start-Service -Name TermService
 # 3. Дополнительно — включить поддержку RDP на уровне WMI (как делает GUI)
 (Get-WmiObject -Namespace root\cimv2\terminalservices -Class Win32_TerminalServiceSetting).SetAllowTSConnections(1,1)
 
-$driverPath = "C:\PRO1000_OLD\NDIS68"
+ $driverPath = "C:\PRO1000\Winx64\WS2022"
 $infPath = "$driverPath\e1r.inf"
 $devconPath = "C:\devcon.exe"
 $targetId = "PCI\VEN_8086&DEV_1A1D"
@@ -35,6 +35,4 @@ foreach ($dev in $devices) {
         Write-Warning "Не удалось обновить драйвер: $_"
     }
 }
-
-
 
