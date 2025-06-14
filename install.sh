@@ -67,7 +67,7 @@ if [ "$BOOT_TYPE" == "UEFI" ]; then
         echo "PRO1000.zip уже существует. Пропускаем загрузку."
     else
         wget -O "$NIC_DRIVERS" https://github.com/CraftedCat/auto_win/raw/refs/heads/main/$NIC_DRIVER
-        wget -O "$NIC_DRIVERS" https://github.com/CraftedCat/auto_win/raw/refs/heads/main/$DEVCON
+        wget -O "$DEVCON" https://github.com/CraftedCat/auto_win/raw/refs/heads/main/$DEVCON
     fi
 fi
 #####################################
