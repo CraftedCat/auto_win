@@ -35,3 +35,12 @@ foreach ($vol in $volumes) {
         break
     }
 }
+
+# Поиск devcon.exe и копирование на диск C
+foreach ($vol in $volumes) {
+    $devconPath = "$($vol.DriveLetter):\devcon.exe"
+    if (Test-Path $devconPath) {
+        Copy-Item -Path $devconPath -Destination "C:\devcon.exe" -Force
+        break
+    }
+}
