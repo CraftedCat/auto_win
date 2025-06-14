@@ -29,18 +29,11 @@ $volumes = Get-Volume | Where-Object { $_.DriveLetter -ne $null }
 
 foreach ($vol in $volumes) {
     $zipPath = "$($vol.DriveLetter):\PRO1000.zip"
+    $zipPath2 = "$($vol.DriveLetter):\DEVCON.zip"
     if (Test-Path $zipPath) {
         $extractTo = "C:\"
         Expand-Archive -Path $zipPath -DestinationPath $extractTo -Force
-        break
-    }
-}
-
-# Поиск devcon.exe и копирование на диск C
-foreach ($vol in $volumes) {
-    $devconPath = "$($vol.DriveLetter):\devcon.exe"
-    if (Test-Path $devconPath) {
-        Copy-Item -Path $devconPath -Destination "C:\devcon.exe" -Force
+        Expand-Archive -Path $zipPath2 -DestinationPath $extractTo -Force
         break
     }
 }
