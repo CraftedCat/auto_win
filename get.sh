@@ -6,6 +6,7 @@ wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/enabl
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autounattend_bios.xml
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/autounattend_uefi.xml
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/PRO1000.zip
+wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/x64.zip
 
 #!/bin/bash
 
