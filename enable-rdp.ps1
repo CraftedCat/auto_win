@@ -8,16 +8,16 @@ Start-Service -Name TermService
 # 3. Дополнительно — включить поддержку RDP на уровне WMI (как делает GUI)
 (Get-WmiObject -Namespace root\cimv2\terminalservices -Class Win32_TerminalServiceSetting).SetAllowTSConnections(1,1)
 
- $driverPath = "C:\PRO1000\Winx64\WS2022"
+$driverPath = "C:\PRO1000\Winx64\WS2022"
 $infPath = "$driverPath\e1r.inf"
-$devconPath = "C:\devcon.exe"
+$devconPath = "C:\x64\x64\devcon.exe"
 $targetId = "PCI\VEN_8086&DEV_1A1D"
 $deviceIdToUse = "PCI\VEN_8086&DEV_1A1D&SUBSYS_86721043"
 
 # Поиск устройств с нужным HardwareID
-$devices = Get-CimInstance Win32_PnPEntity | Where-Object {
-    $_.PNPClass -eq "Net" -and $_.HardwareID -match [regex]::Escape($targetId)
-}
+$devices = @(Get-CimInstance Win32_PnPEntity | Where-Object {
+    $_.PNPClass -eq "Net" -and $_.HardwareID -match "VEN_8086&DEV_1A1D"
+})
 
 if (-not $devices) {
     Write-Host "Нет устройств с HardwareID: $targetId"
