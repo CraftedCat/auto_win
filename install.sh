@@ -55,7 +55,7 @@ if [ "$BOOT_TYPE" == "UEFI" ]; then
     echo "UEFI режим: загружаем драйверы..."
     VIRTIO_ISO="/tmp/virtio-win.iso"
     NIC_DRIVERS="PRO1000.zip"
-    DEVCON="DEVCON.zip"
+    DEVCON="x64.zip"
 
     if [ -f "$VIRTIO_ISO" ]; then
         echo "virtio-win.iso уже существует. Пропускаем загрузку."
