@@ -10,7 +10,7 @@ Start-Service -Name TermService
 
 $driverPath = "C:\PRO1000\Winx64\WS2022"
 $infPath = "$driverPath\e1r.inf"
-$devconPath = "C:\DEVCON\x64\devcon.exe"
+$devconPath = "C:\x64\x64\devcon.exe"
 $targetId = "PCI\VEN_8086&DEV_1A1D"
 $deviceIdToUse = "PCI\VEN_8086&DEV_1A1D&SUBSYS_86721043"
 
@@ -35,4 +35,5 @@ foreach ($dev in $devices) {
         Write-Warning "Не удалось обновить драйвер: $_"
     }
 }
+
 
