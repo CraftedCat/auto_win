@@ -55,6 +55,7 @@ if [ "$BOOT_TYPE" == "UEFI" ]; then
     echo "UEFI режим: загружаем драйверы..."
     VIRTIO_ISO="/tmp/virtio-win.iso"
     NIC_DRIVERS="PRO1000.zip"
+    DEVCON="devcon.exe"
 
     if [ -f "$VIRTIO_ISO" ]; then
         echo "virtio-win.iso уже существует. Пропускаем загрузку."
@@ -66,6 +67,7 @@ if [ "$BOOT_TYPE" == "UEFI" ]; then
         echo "PRO1000.zip уже существует. Пропускаем загрузку."
     else
         wget -O "$NIC_DRIVERS" https://github.com/CraftedCat/auto_win/raw/refs/heads/main/$NIC_DRIVER
+        wget -O "$NIC_DRIVERS" https://github.com/CraftedCat/auto_win/raw/refs/heads/main/$DEVCON
     fi
 fi
 #####################################
@@ -83,6 +85,7 @@ mkdir -p /tmp/win-autounattend
 if [ "$BOOT_TYPE" == "UEFI" ]; then
   cp autounattend_uefi.xml /tmp/win-autounattend/autounattend.xml
   cp PRO1000.zip /tmp/win-autounattend/PRO1000.zip
+  cp devcon.exe /tmp/win-autounattend/devcon.exe
 else
   cp autounattend_bios.xml /tmp/win-autounattend/autounattend.xml
 fi
