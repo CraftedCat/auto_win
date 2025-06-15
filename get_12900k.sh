@@ -16,4 +16,4 @@ else
     echo "Файл install_12900k.sh не найден!"
 fi
 
-bash install.sh
+bash install_12900k.sh
