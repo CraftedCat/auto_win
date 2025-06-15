@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
 wget https://raw.githubusercontent.com/CraftedCat/auto_win/refs/heads/main/install_12900k.sh
-
-
-#!/bin/bash
-
-# Проверка: оба пароля должны быть заданы
 if [ -z "$1" ]; then
     echo "Использование: $0 <пароль для WebServer c файлами>"
     exit 1
