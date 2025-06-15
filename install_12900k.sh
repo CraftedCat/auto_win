@@ -48,9 +48,7 @@ else
 fi
 #####################################
 
-######### Запись golden image ###########
+######### Запись golden image и reboot ###########
 zstd -d --stdout /mnt/"$GOLDEN_IMAGE" | dd of="$DISK_DEVICE" bs=256M status=progress
-sync
+sync && sleep 10 && reboot
 #####################################
-
-reboot
