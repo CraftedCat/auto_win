@@ -49,7 +49,7 @@ fi
 #####################################
 
 ######### Запись golden image ###########
-zstd -d --stdout /mnt/win_image.img.zst | dd of="$DISK_DEVICE" bs=256M
+zstd -d --stdout /mnt/"$GOLDEN_IMAGE" | dd of="$DISK_DEVICE" bs=256M
 sync
 #####################################
 
