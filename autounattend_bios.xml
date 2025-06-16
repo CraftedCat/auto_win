@@ -124,8 +124,8 @@
           <Order>1</Order>
         </SynchronousCommand>
         <SynchronousCommand wcm:action="add">
-          <CommandLine>shutdown -r -t 60</CommandLine>
-          <Description>Reboot</Description>
+          <Description>Shutdown</Description>
+          <CommandLine>shutdown -s -t 60</CommandLine>
           <Order>2</Order>
         </SynchronousCommand>
       </FirstLogonCommands>
