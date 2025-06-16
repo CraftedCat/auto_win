@@ -172,4 +172,6 @@ else
         -drive file=/tmp/autounattend.iso,media=cdrom \
         -boot order=d
 fi
+
+sleep 10 && reboot
 #####################################
